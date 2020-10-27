@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Resgaste</a>
+                </div>
+        </nav>
+
+        <h4 style="text-transform:uppercase;padding-left: 10px;">dados do investimento</h4>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Saldo total disponível</th>
+                            <th>Valor total a Resgastar </th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>{{investimento.nome}}</td>
+                                <td>{{investimento.saldoTotalDisponivel | currency:'R$ '}}</td>
+                                <td>{{totalResgastar | currency:'R$ '}}</td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+
+        </div>
+        </div>  
+        
+        <h4 style="text-transform:uppercase;padding-left: 10px;">resgaste do seu jeito</h4>
+        
+        <form  name="form" ng-submit="submit()" novalidate>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr style = "text-transform:uppercase;">
+                                <th>Ação</th>
+                                <th>Saldo Acumulado</th>
+                                <th>Valor a Resgastar</th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            <tr ng-repeat="acao in acoes">
+                                <td>{{acao.nome}}</td>
+                                <td>{{acao.valor | currency:'R$ '}}</td>
+                                <td><input type="number" id="inputValores" name="inputValores" ng-model="inputValores[acao.id]"/></td>
+                            </tr>
+                        </tbody>    
+                    </table>                  
+                      
+                    <div class="alert alert-danger" ng-show="!isValido">{{mensagem}}</div>
+                    <button type="submit" class="btn btn-primary">
+                        Confirmar Resgaste</button>  
+
+                    <div class="alert alert-success" ng-show="showMensagemSucesso">{{mensagemSucesso}}</div>    
+                </div>
+            </div>    
+        </form>
+
+        
+        
+        
+    </body>
+</html>

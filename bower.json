@@ -1,0 +1,25 @@
+{
+  "name": "investimentos-angular",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-i18n": "^1.8.2",
+    "angular-input-masks": "^2.6.0",
+    "angular": "1.8.2",
+    "angular-route": "^1.8.2",
+    "angular-resource": "^1.8.2",
+    "jquery": "^3.5.1",
+    "bower": "*",
+    "angular-money-mask": "^1.0.4",
+  }
+}
